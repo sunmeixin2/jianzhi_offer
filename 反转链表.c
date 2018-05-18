@@ -15,7 +15,7 @@ void print(list head){
 		p1=p1->next; 
 	} 
 }
-list create(int *nums,int len){
+list create(int *nums,int len){		//创建链表 
 	list head,p1,p2;
 	int i;
 	p1=p2=(list)malloc(sizeof(listNode));
@@ -32,8 +32,8 @@ list create(int *nums,int len){
 	p2->next=NULL;
 	return head;
 }
-list ReverseList(list head){
-	list pPrev,pNode,pNext,headNew=NULL;
+list ReverseList(list head){		//将head 链表反转 
+	list pPrev,pNode,pNext,headNew=NULL;		//pPrev指向前一个节点，pNode指向当前节点，pNext 指向后一个节点 
 	pNode=head;
 	pPrev=NULL;
 	while(pNode){
@@ -62,5 +62,6 @@ int main(){
 
 /*
 	思路：定义3个指针，分别是pPrev（前一个节点）、 pNode（当前遍历的节点）、 pNext（后一个节点） 
+			只需要将链表从头到尾把每个节点的指针指向前一个节点，就可以完成链表的反转。 
 */
  
