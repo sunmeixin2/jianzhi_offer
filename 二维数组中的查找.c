@@ -20,7 +20,7 @@ bool find(int *arr,int target,int row,int col){
 	}
 	return found;
 }
-main(){
+int main(){
 	
 //	行数 = sizeof(array)/sizeof(array[0]);
 //列数 = sizeof(array[0])/sizeof(array[0][0]);
@@ -38,6 +38,7 @@ main(){
 	col=sizeof(arr[0])/sizeof(arr[0][0]);
 	found=find(*arr,target,row,col);
 	printf("%d\n",found);
+	return 0;
 } 
 
 
@@ -46,6 +47,5 @@ main(){
 	 请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 
 思路：选取左下角比较 
 */ 
-
 
 
