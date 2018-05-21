@@ -47,7 +47,7 @@ int main(){
 	qsort(w,10,sizeof(w[0]),cmp3);
 	qsort(p,10,sizeof(p[0]),cmp4);
 	
-	
+	 
 	
 //	for(i=0;i<5;i++){
 //		printf("%d ",num[i]);
