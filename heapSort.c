@@ -3,19 +3,18 @@
 void swap(int *a, int *b);
 void adjustHeap(int param1,int j, int inNums[]);
 void  HeapSort(int nums, int inNums[]);
-//´ó¸ù¶Ñ½øĞĞµ÷Õû
+//å¤§æ ¹å †è¿›è¡Œè°ƒæ•´
 void adjustHeap(int param1, int j, int inNums[])
 {
     int temp=inNums[param1];
-    int k;
-    for(k=param1*2+1;k<j;k=k*2+1)
+    for (int k=param1*2+1;k<j;k=k*2+1)
     {
-        //Èç¹ûÓÒ±ßÖµ´óÓÚ×ó±ßÖµ£¬Ö¸ÏòÓÒ±ß
+        //å¦‚æœå³è¾¹å€¼å¤§äºå·¦è¾¹å€¼ï¼ŒæŒ‡å‘å³è¾¹
         if (k+1<j && inNums[k]< inNums[k+1])
         {
             k++;
         }
-        //Èç¹û×Ó½Úµã´óÓÚ¸¸½Úµã£¬½«×Ó½ÚµãÖµ¸³¸ø¸¸½Úµã,²¢ÒÔĞÂµÄ×Ó½Úµã×÷Îª¸¸½Úµã£¨²»ÓÃ½øĞĞ½»»»£©
+        //å¦‚æœå­èŠ‚ç‚¹å¤§äºçˆ¶èŠ‚ç‚¹ï¼Œå°†å­èŠ‚ç‚¹å€¼èµ‹ç»™çˆ¶èŠ‚ç‚¹,å¹¶ä»¥æ–°çš„å­èŠ‚ç‚¹ä½œä¸ºçˆ¶èŠ‚ç‚¹ï¼ˆä¸ç”¨è¿›è¡Œäº¤æ¢ï¼‰
         if (inNums[k]>temp)
         {
             inNums[param1]=inNums[k];
@@ -27,86 +26,34 @@ void adjustHeap(int param1, int j, int inNums[])
         //put the value in the final position
     inNums[param1]=temp;
 }
-//¶ÑÅÅĞòÖ÷ÒªËã·¨
+//å †æ’åºä¸»è¦ç®—æ³•
 void HeapSort(int nums,int inNums[])
 {
-	int i,j;
-    //1.¹¹½¨´ó¶¥¶Ñ
-    for (i=nums/2-1;i>=0;i--)
+    //1.æ„å»ºå¤§é¡¶å †
+    for (int i=nums/2-1;i>=0;i--)
     {
                 //put the value in the final position
         adjustHeap(i,nums,inNums);
     }
-    //2.µ÷Õû¶Ñ½á¹¹+½»»»¶Ñ¶¥ÔªËØÓëÄ©Î²ÔªËØ
-    for ( j=nums-1;j>0;j--)
+    //2.è°ƒæ•´å †ç»“æ„+äº¤æ¢å †é¡¶å…ƒç´ ä¸æœ«å°¾å…ƒç´ 
+    for (int j=nums-1;j>0;j--)
     {
-                //¶Ñ¶¥ÔªËØºÍÄ©Î²ÔªËØ½øĞĞ½»»»
+                //å †é¡¶å…ƒç´ å’Œæœ«å°¾å…ƒç´ è¿›è¡Œäº¤æ¢
         int temp=inNums[0];
         inNums[0]=inNums[j];
         inNums[j]=temp;
  
-        adjustHeap(0,j,inNums);//ÖØĞÂ¶Ô¶Ñ½øĞĞµ÷Õû
+        adjustHeap(0,j,inNums);//é‡æ–°å¯¹å †è¿›è¡Œè°ƒæ•´
     }
 }
 int main() {
     int data[] = {6,5,8,4,7,9,1,3,2};
     int len = sizeof(data) / sizeof(int);
     HeapSort(len,data);
+    for(int i=0;i<len;i++){
+        printf("%d ",data[i]);
+    }
+    printf("\n");
     return 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//#include<stdio.h>
-//#define MAX 6
-//void Headadjust(int k[],int s,int n){
-//	int temp,i;
-//	temp=k[s];
-//	for(i=s*2;i<n;i=i*2){
-//		if(i<n && k[i]>k[i+1]){
-//			i++;
-//		}
-//		if(temp <= k[i]){
-//			break;
-//		}
-//		k[s]=k[i];
-//		s=i;
-//	}                                                                          
-//	k[s]=temp;
-//}
-//void Headsort(int k[],int n){
-//	int i;
-//	for(i=n/2;i>1;i--){			//½¨³õÊ¼¶Ñ 
-//		Headadjust(k,i,n);
-//	}
-//	for(i=n;i>=2;i++){
-//		k[0]=k[i];
-//		k[i]=k[1];
-//		k[1]=k[0];
-//		Headadjust(k,1,i-1);
-//	}
-//}
-//main(){
-//	int nums[MAX]={-1,5,3,2,4,1};
-//	int i;
-//	Headsort(nums,MAX-1);
-//	printf("ÅÅĞòºó£º");	
-//	for(i=1;i<MAX;i++){
-//		printf("%d ",nums[i]);
-//	}
-//}
